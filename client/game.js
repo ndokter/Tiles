@@ -17,12 +17,11 @@ class Game {
         this.FRAME_TIME = 1000 / this.MAX_FPS;
         this.lastRender = 0;
 
-        this.fpsCounter = 0;
-        this.fpsStart = Date.now();
-        this.fpsSampleSize = 2000; // milliseconds
+        this.stats = new Stats();
+        this.stats.showPanel(0); // 0: fps, 1: ms, 2: mb, 3+: custom
+        document.body.appendChild(this.stats.dom);
 
         this.world = new World();
-
         this.inputHandler = new InputHandler();
 
         this.camera = new IsometricViewport(canvas, this.world, this.inputHandler, canvas.width, canvas.height);
@@ -42,6 +41,8 @@ class Game {
     }
 
     tick() {
+        this.stats.begin();
+
         // TODO separate rendering from updating
         while (this.updateLag >= this.MS_PER_UPDATE) {
             this.update();
@@ -52,6 +53,8 @@ class Game {
 
         this.updateLag += Date.now() - this.lastTick;
         this.lastTick = Date.now();
+
+        this.stats.end();
 
         if (this.isRunning) {
             window.requestAnimationFrame(() => this.tick());
