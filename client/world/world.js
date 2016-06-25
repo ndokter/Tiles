@@ -2,7 +2,7 @@
 
 class World {
     constructor() {
-        this.width = 80, this.height = 80;
+        this.width = 60, this.height = 60;
         this.map = this.generateMap(this.width, this.height);
     }
 
@@ -15,7 +15,6 @@ class World {
             ];
 
         for (let i = 0; i < width; i++) {
-
             for (let j = 0; j < height; j++) {
                 tileClass = tileClasses[Math.floor(Math.random()*tileClasses.length)];
                 map.push(new tileClass());

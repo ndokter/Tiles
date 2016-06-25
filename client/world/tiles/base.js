@@ -12,5 +12,6 @@ class BaseTile {
         this.imageOffsetY = -12;
 
         this.image = new Image();
+        this.imageSmall = new Image();
     }
 }

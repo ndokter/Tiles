@@ -25,8 +25,9 @@ class Game {
         this.inputHandler = new InputHandler();
 
         this.camera = new IsometricViewport(canvas, this.world, this.inputHandler, canvas.width, canvas.height);
-        this.miniMap = new SimpleTopViewport(canvas, this.world, this.inputHandler, 150, 150);
-        this.miniMap.windowPositionX = canvas.width - 150;
+        this.miniMap = new SimpleIsometricViewport(canvas, this.world, this.inputHandler, 300, 300);
+        // this.miniMap.windowPositionX = canvas.width - 300;
+        this.miniMap.windowPositionX = canvas.width / 2;
         this.miniMap.windowPositionY = 0;
 
         this.miniMap.viewPositionX = this.camera.viewPositionX;
@@ -64,8 +65,7 @@ class Game {
     render(interpolation) {
         this.camera.render();
 
-        this.miniMap.viewPositionX = this.camera.viewPositionX;
-        this.miniMap.viewPositionY = this.camera.viewPositionY;
+        this.miniMap.gridPosition = this.camera.gridPosition;
         this.miniMap.render();
     }
 

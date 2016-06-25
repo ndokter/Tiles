@@ -12,15 +12,7 @@ class BaseViewport {
         this.windowPositionX = 0;
         this.windowPositionY = 0;
 
-        this.viewPositionX = 0;
-        this.viewPositionY = 0;
-    }
-
-    viewBoundaryCheck(x, y, marginX, marginY) {
-        return x + marginX > this.windowPositionX
-               && x - marginX < this.windowPositionX + this.width
-               && y + marginY > this.windowPositionY
-               && y - marginY < this.windowPositionY + this.height;
+        this.gridPosition = {'x': 0, 'y': 0};
     }
 
     render() {}
