@@ -12,6 +12,7 @@ class IsometricViewport extends BaseViewport {
         this.tileHeight = 32;
     }
 
+    // TODO move this to Game?
     processUserInput() {
         if (this.inputHandler === undefined)
             return;
@@ -107,17 +108,20 @@ class IsometricViewport extends BaseViewport {
         this.context.fillStyle = '#ffffff';
         this.context.clearRect(this.windowPositionX, this.windowPositionY, this.width, this.height);
 
-        let gridX, gridY, screenPosition, tile,
-            gridBoundary = this.gameGridBoundary(1);
+        let gridX, gridY, screenPosition, tile, gridBoundary = this.gameGridBoundary(1);
 
         for (gridY = gridBoundary.yMin; gridY < gridBoundary.yMax; gridY++) {
             for (gridX = gridBoundary.xMax - 1; gridX >= gridBoundary.xMin; gridX--) {
                 tile = this.world.map[gridY * this.world.width + gridX];
 
-                screenPosition = this.gridToScreen(gridX, gridY);
-
-                this.context.drawImage(tile.image, screenPosition.x, screenPosition.y);
+                this.renderTile(tile, gridX, gridY);
             }
         }
+    }
+
+    renderTile(tile, gridX, gridY) {
+        let screenPosition = this.gridToScreen(gridX, gridY);
+
+        this.context.drawImage(tile.image, screenPosition.x, screenPosition.y);
     }
 }

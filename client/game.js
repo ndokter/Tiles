@@ -66,7 +66,7 @@ class Game {
         this.camera.render();
 
         this.miniMap.gridPosition = this.camera.gridPosition;
-        this.miniMap.render();
+        // this.miniMap.render();
     }
 
     update() {
