@@ -113,15 +113,10 @@ class IsometricViewport extends BaseViewport {
         for (gridY = gridBoundary.yMin; gridY < gridBoundary.yMax; gridY++) {
             for (gridX = gridBoundary.xMax - 1; gridX >= gridBoundary.xMin; gridX--) {
                 tile = this.world.map[gridY * this.world.width + gridX];
+                screenPosition = this.gridToScreen(gridX, gridY);
 
-                this.renderTile(tile, gridX, gridY);
+                tile.render(this.context, screenPosition.x, screenPosition.y);
             }
         }
-    }
-
-    renderTile(tile, gridX, gridY) {
-        let screenPosition = this.gridToScreen(gridX, gridY);
-
-        this.context.drawImage(tile.image, screenPosition.x, screenPosition.y);
     }
 }

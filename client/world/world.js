@@ -2,10 +2,11 @@
 
 class World {
     constructor() {
-        this.width = 60, this.height = 60;
+        this.width = 80, this.height = 80;
         this.map = this.generateMap(this.width, this.height);
     }
 
+    // tmp method for debugging purposes
     generateMap(width, height) {
         let map = [],
             tileClass,
@@ -20,6 +21,8 @@ class World {
                 map.push(new tileClass());
             }
         }
+
+        map[0].entities.push(new Fire());
 
         return map;
     }
