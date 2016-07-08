@@ -4,7 +4,6 @@ class GrassTile extends BaseTile {
     constructor() {
         super();
 
-        this.image.src = 'assets/tiles/simple/grass.png';
-        this.imageColorCode = '#207e2d';
+        this.image = resources.get('assets/64/tiles/simple/grass.png');
     }
 }

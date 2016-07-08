@@ -1,9 +1,8 @@
 'use strict';
 
 class Sprite {
-    constructor(path, frames, width, height, offsetX, offsetY) {
-        this.image = new Image();
-        this.image.src = path;
+    constructor(image, numberOfFrames, animationSpeed, width, height, offsetX, offsetY) {
+        this.image = image;
 
         this.width = width;
         this.height = height;
@@ -11,10 +10,10 @@ class Sprite {
         this.offsetX = offsetX;
         this.offsetY = offsetY;
 
-        this.frameIndex = 0,
-        this.tickCount = 0,
-        this.ticksPerFrame = 7,
-        this.numberOfFrames = 5;
+        this.frameIndex = 0;
+        this.tickCount = 0;
+        this.ticksPerFrame = animationSpeed;
+        this.numberOfFrames = numberOfFrames;
     }
 
     update() {

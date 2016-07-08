@@ -5,8 +5,10 @@ class BaseTile {
         this.tileWidth = 64;
         this.tileHeight = 32;
 
-        this.image = new Image();
+        this.offsetX = 0;
+        this.offsetY = 0;
 
+        this.image;
         this.entities = [];
     }
 

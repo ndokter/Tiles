@@ -2,8 +2,9 @@
 
 class World {
     constructor() {
-        this.width = 80, this.height = 80;
+        this.width = 30, this.height = 30;
         this.map = this.generateMap(this.width, this.height);
+        this.map[0].entities.push(new CampFire());
     }
 
     // tmp method for debugging purposes
@@ -22,38 +23,8 @@ class World {
             }
         }
 
-        map[0].entities.push(new Fire());
+        map[0].entities.push(new CampFire());
 
         return map;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// let x, y, tile;
-// Single loop
-// for (let i = 0; i < this.mapWidth * this.mapHeight; i++) {
-//     y = Math.floor(i / this.mapWidth);
-//     x = i % this.mapWidth;
-//     tile = this.map[i];
-//
-//     x = (x * tile.width / 2) + (y * tile.width / 2);
-//     y = (y * tile.height / 2) - (x * tile.height / 2);
-//
-//     tile.render(
-//         context,
-//         x + 200,
-//         y + 200
-//      );
-// }

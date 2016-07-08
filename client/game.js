@@ -36,6 +36,7 @@ class Game {
 
     start() {
         this.isRunning = true;
+
         this.lastTick = Date.now();
 
         window.requestAnimationFrame(() => this.tick());

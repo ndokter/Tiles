@@ -1,10 +1,11 @@
 'use strict';
 
-class Fire {
+class CampFire {
     constructor() {
         this.sprite = new Sprite(
-            'assets/entities/camp_fire.png',
+            resources.get('assets/64/entities/camp_fire.png'),
             5,
+            6,
             64,
             64,
             0,
