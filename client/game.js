@@ -51,9 +51,10 @@ class Game {
             this.updateLag -= this.MS_PER_UPDATE;
         }
 
+        this.updateLag += Date.now() - this.lastTick;
+
         this.render(this.updateLag / this.MS_PER_UPDATE);
 
-        this.updateLag += Date.now() - this.lastTick;
         this.lastTick = Date.now();
 
         this.stats.end();

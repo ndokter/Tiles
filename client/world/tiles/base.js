@@ -19,4 +19,11 @@ class BaseTile {
             entity.render(context, screenPositionX, screenPositionY);
         }
     }
+
+    renderSelected(context, screenPositionX, screenPositionY) {
+        context.beginPath();
+        context.rect(screenPos.x + 32 - 5, screenPos.y + 16 - 5, 10, 10);
+        context.stroke();
+        context.closePath();      
+    }
 }

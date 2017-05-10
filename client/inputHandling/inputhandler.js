@@ -11,7 +11,10 @@ class InputHandler {
 
         this._pressedKeys = {};
         this._mousePosition = {
-            'current': null,
+            'current': {
+                'x': 0,
+                'y': 0
+            },
             'dragStart': null
         };
 
